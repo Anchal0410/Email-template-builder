@@ -224,68 +224,6 @@ const EmailBuilder = () => {
     }
   };
 
-  // const handleDownload = async () => {
-  //   try {
-  //     const response = await fetch(`${API_URL}/renderAndDownloadTemplate`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         title: emailContent.title,
-  //         content: emailContent.content,
-  //         image: emailContent.image,
-  //         logoUrl: emailContent.image, // Make sure this contains the full URL
-  //       }),
-  //     });
-
-  //     if (!response.ok) throw new Error("Download failed");
-
-  //     const blob = await response.blob();
-  //     const url = window.URL.createObjectURL(blob);
-  //     const a = document.createElement("a");
-  //     a.href = url;
-  //     a.download = "email-template.html";
-  //     document.body.appendChild(a);
-  //     a.click();
-  //     document.body.removeChild(a);
-  //     window.URL.revokeObjectURL(url);
-  //   } catch (error) {
-  //     console.error("Error downloading template:", error);
-  //   }
-  // };
-  // const handleDownload = async () => {
-  //   try {
-  //     // Create object with content and section order
-  //     const templateData = {
-  //       content: emailContent,
-  //       sections: sections, // Include the sections array
-  //     };
-
-  //     const response = await fetch(`${API_URL}/renderAndDownloadTemplate`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(templateData),
-  //     });
-
-  //     if (!response.ok) throw new Error("Download failed");
-
-  //     const blob = await response.blob();
-  //     const url = window.URL.createObjectURL(blob);
-  //     const a = document.createElement("a");
-  //     a.href = url;
-  //     a.download = "email-template.html";
-  //     document.body.appendChild(a);
-  //     a.click();
-  //     document.body.removeChild(a);
-  //     window.URL.revokeObjectURL(url);
-  //   } catch (error) {
-  //     console.error("Error downloading template:", error);
-  //   }
-  // };
-
   const handleDownload = async () => {
     try {
       const templateData = {
