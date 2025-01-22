@@ -8,7 +8,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', 
+  origin: 'https://email-template-builder-phi.vercel.app/', 
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));

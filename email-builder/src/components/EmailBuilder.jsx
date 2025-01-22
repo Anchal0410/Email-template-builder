@@ -37,10 +37,10 @@ const EmailBuilder = () => {
   // State for sections order
   const [sections, setSections] = useState(["title", "content", "image"]);
   const [selectedElement, setSelectedElement] = useState(null);
-  const API_URL = "http://localhost:5000/api";
+  const API_URL = "https://email-template-builder-nqgh.onrender.com";
   // Fetch template from backend
   useEffect(() => {
-    const API_URL = "http://localhost:5000/api";
+    const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
 
     // Example fetch call
     const fetchTemplate = async () => {
@@ -99,7 +99,7 @@ const EmailBuilder = () => {
 
     try {
       // Make sure to use the complete URL including port number
-      const response = await fetch("http://localhost:5000/api/uploadImage", {
+      const response = await fetch(`${API_URL}/uploadImage`, {
         method: "POST",
         body: formData,
       });
@@ -111,7 +111,7 @@ const EmailBuilder = () => {
       const data = await response.json();
 
       // Construct the full URL for the image
-      const fullImageUrl = `http://localhost:5000${data.imageUrl}`;
+      const fullImageUrl = `${API_URL}${data.imageUrl}`;
 
       setEmailContent((prev) => ({
         ...prev,
@@ -141,7 +141,7 @@ const EmailBuilder = () => {
   // Save template to backend
   const saveTemplate = async () => {
     try {
-      await fetch("/api/uploadEmailConfig", {
+      await fetch(`${API_URL}/api/uploadEmailConfig`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
