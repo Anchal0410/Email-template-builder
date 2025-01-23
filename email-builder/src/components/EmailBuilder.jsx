@@ -37,7 +37,7 @@ const EmailBuilder = () => {
   // State for sections order
   const [sections, setSections] = useState(["title", "content", "image"]);
   const [selectedElement, setSelectedElement] = useState(null);
-  const API_URL = "https://email-template-builder-nqgh.onrender.com";
+  const API_URL = "https://email-template-builder-nqgh.onrender.com/api";
   // Fetch template from backend
   useEffect(() => {
     const API_URL = `https://email-template-builder-nqgh.onrender.com/api`;
