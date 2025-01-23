@@ -99,6 +99,7 @@ const EmailBuilder = () => {
 
     try {
       // Make sure to use the complete URL including port number
+
       const response = await fetch(`${API_URL}/uploadImage`, {
         method: "POST",
         body: formData,
@@ -111,7 +112,8 @@ const EmailBuilder = () => {
       const data = await response.json();
 
       // Construct the full URL for the image
-      const fullImageUrl = `${API_URL}${data.imageUrl}`;
+      const baseURL = API_URL.replace("/api", "");
+      const fullImageUrl = `${baseURL}${data.imageUrl}`;
 
       setEmailContent((prev) => ({
         ...prev,
