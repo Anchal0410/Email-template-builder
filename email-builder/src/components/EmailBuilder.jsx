@@ -40,7 +40,7 @@ const EmailBuilder = () => {
   const API_URL = "https://email-template-builder-nqgh.onrender.com";
   // Fetch template from backend
   useEffect(() => {
-    const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
+    const API_URL = `https://email-template-builder-nqgh.onrender.com/api`;
 
     // Example fetch call
     const fetchTemplate = async () => {
@@ -73,7 +73,7 @@ const EmailBuilder = () => {
       const data = await response.json();
       setEmailConfig((prev) => ({
         ...prev,
-        logoUrl: `http://localhost:5000${data.imageUrl}`,
+        logoUrl: `${API_URL}${data.imageUrl}`,
       }));
     } catch (error) {
       console.error("Error uploading logo:", error);
@@ -454,5 +454,4 @@ const getFontSize = (size) => {
       return "1rem";
   }
 };
-
 export default EmailBuilder;
